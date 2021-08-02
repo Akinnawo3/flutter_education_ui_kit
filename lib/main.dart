@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:library_ui/pages/dashboard/dashboard.dart';
+import 'package:library_ui/pages/dashboard/dashboard_bundle.dart';
 import 'package:library_ui/pages/homepage/homepage.dart';
 
 void main() {
