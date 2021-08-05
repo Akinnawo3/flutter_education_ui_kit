@@ -25,13 +25,34 @@ class _DashboardState extends State<Dashboard> {
             RowQuestion(),
 
             const SizedBox(
-              height: 30.0,
+              height: 6.0,
             ),
             //all the cards
             Cards()
           ],
         ),
       )),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+          ),
+        ],
+        // currentIndex: _selectedIndex,
+        currentIndex: 0,
+        selectedItemColor: Colors.amber[800],
+        // onTap: _onItemTapped,
+      ),
+      
     );
   }
 }

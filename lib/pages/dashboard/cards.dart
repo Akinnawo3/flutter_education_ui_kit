@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:library_ui/pages/dashboard/dashboardcard.dart';
 
 class Cards extends StatelessWidget {
   @override
@@ -8,33 +9,48 @@ class Cards extends StatelessWidget {
       children: [
         Column(
           children: [
-            Card(
-              color: Colors.redAccent,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-              child: Container(
-                height: 202.00,
-                width: 152.00,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 10.0),
-                  child: Column(
-                    children: [
-                      Card(
-                        color: Colors.red[300],
-                        child: const Padding(
-                          padding: EdgeInsets.all(3.0),
-                          child: Text(
-                            "Multimedia",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
+            DashboardCard(
+                cardColor: Colors.redAccent,
+                cardTitle: "Multimedia",
+                titleCardColor: Colors.red[300],
+                titleTextColor: Colors.white,
+                cardLabel: "Animation Basic Course",
+                cardLabelColor: Colors.white,
+                linearProgressColor: Colors.red[700],
+                cardImagePath: "assets/card_1_img.png"),
+            const SizedBox(height: 7.0),
+            DashboardCard(
+                cardColor: Colors.white,
+                cardTitle: "Social Media",
+                titleCardColor: Colors.lightBlueAccent[100],
+                titleTextColor: Colors.blue,
+                cardLabel: "Social Media Monitoring",
+                linearProgressColor: Colors.blue[700],
+                cardImagePath: "assets/card_2_img.png"),
+          ],
+        ),
+        Column(
+          children: [
+            const SizedBox(
+              height: 60.0,
+            ),
+            DashboardCard(
+                cardColor: Colors.white,
+                cardTitle: "Programming",
+                titleCardColor: Colors.lightBlueAccent[100],
+                titleTextColor: Colors.blue,
+                cardLabel: "Python for everybody",
+                linearProgressColor: Colors.blue[700],
+                cardImagePath: "assets/card_3_img.png"),
+            const SizedBox(height: 7.0),
+            DashboardCard(
+                cardColor: Colors.cyan[100],
+                cardTitle: "Social Media",
+                titleCardColor: Colors.lightBlueAccent[100],
+                titleTextColor: Colors.white,
+                cardLabel: "Fundamentals of Design",
+                linearProgressColor: Colors.blue[700],
+                cardImagePath: "assets/card_4_img.png"),
           ],
         ),
       ],
