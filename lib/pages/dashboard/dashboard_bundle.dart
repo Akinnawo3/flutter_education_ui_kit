@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:library_ui/pages/dashboard/cards.dart';
-import 'package:library_ui/pages/dashboard/row_question.dart';
-import 'package:library_ui/pages/dashboard/top_intro.dart';
+import 'package:library_ui/pages/dashboard/book.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -13,20 +11,21 @@ class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
 
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Books',
-      style: optionStyle,
+  static final List<Widget> _widgetOptions = <Widget>[
+    Books(),
+    const Center(
+      child: Text(
+        'Index 1: Play',
+        style: optionStyle,
+      ),
     ),
-    Text(
-      'Index 1: Play',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Person',
-      style: optionStyle,
+    const Center(
+      child: Text(
+        'Index 2: Person',
+        style: optionStyle,
+      ),
     ),
   ];
 
@@ -36,31 +35,13 @@ class _DashboardState extends State<Dashboard> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-          child: Center(
-            child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: Column(
-            children: [
-              // first row with the text and the avatar
-              TopHello(),
-              //Container containing the leading text
-              RowQuestion(),
-
-              const SizedBox(
-                height: 6.0,
-              ),
-              //all the cards
-              Cards()
-            ],
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-          )),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -83,7 +64,6 @@ class _DashboardState extends State<Dashboard> {
         selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
-
     );
   }
 }
