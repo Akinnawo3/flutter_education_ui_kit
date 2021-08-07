@@ -10,49 +10,80 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  int _selectedIndex = 0;
+
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Books',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Play',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Person',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-          child: Padding(
+          child: Center(
+            child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
-          children: [
-            // first row with the text and the avatar
-            TopHello(),
-            //Container containing the leading text
-            RowQuestion(),
+            children: [
+              // first row with the text and the avatar
+              TopHello(),
+              //Container containing the leading text
+              RowQuestion(),
 
-            const SizedBox(
-              height: 6.0,
-            ),
-            //all the cards
-            Cards()
-          ],
+              const SizedBox(
+                height: 6.0,
+              ),
+              //all the cards
+              Cards()
+            ],
         ),
-      )),
+      ),
+          )),
       bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.menu_book),
+            label: 'Books',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.play_circle_outline),
             label: 'Business',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.person),
             label: 'School',
           ),
         ],
         // currentIndex: _selectedIndex,
         currentIndex: 0,
-        selectedItemColor: Colors.amber[800],
-        // onTap: _onItemTapped,
+        selectedItemColor: Colors.blue,
+        onTap: _onItemTapped,
       ),
-      
+
     );
   }
 }
